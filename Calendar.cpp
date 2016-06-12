@@ -16,24 +16,20 @@ namespace lab2 {
 	template<typename OtherDateType >
 	Calendar<DateType>::Calendar(const Calendar<OtherDateType> &other) : current_date(other.current_date) {
 		events = std::multimap<DateType, std::string>();
-		for (auto it = other.events.begin(); it != other.events.end(); ++it)
-		{
+		for (auto it = other.events.begin(); it != other.events.end(); ++it) {
 			events.insert(std::pair<DateType, std::string>(it->first, it->second));
 		}
 	}
 	// Destructor - Nothing special
 	template<typename DateType>
-	Calendar<DateType>::~Calendar()
-	{
-	}
+	Calendar<DateType>::~Calendar()	{}
 	// Copy assignment
 	template<typename DateType>
 	template<typename OtherDateType>
 	Calendar<DateType> & Calendar<DateType>::operator=(const Calendar<OtherDateType> &other) {
 		current_date = other.current_date;
 		events = std::multimap<DateType, std::string>();
-		for (auto it = other.events.begin(); it != other.events.end(); ++it)
-		{
+		for (auto it = other.events.begin(); it != other.events.end(); ++it) {
 			events.insert(std::pair<DateType, std::string>(it->first, it->second));
 		}
 		return *this;
